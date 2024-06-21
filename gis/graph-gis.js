@@ -227,12 +227,16 @@ var nodes = new vis.DataSet([
   {id:225, label:"互补金属氧化物半导体", group:"feature"},
   {id:226, label:"全快门", group:"feature"},
   {id:227, label:"卷帘快门", group:"feature"},
-  {id:228, label:"果冻效应", group:"theory"}
+  {id:228, label:"果冻效应", group:"theory"},
+  {id:229, label:"地理信息科学", group:"theory"},
+  {id:230, label:"地理信息系统", group:"theory"}
 ]);
 
 // create an array with edges
 var edges = new vis.DataSet([
   {from:1, to:2, label:"基于", arrowhead:"normal"},
+  {from:230, to:229, label:"基于", arrowhead:"normal"},
+  {from:1, to:229, label:"被用于", arrowhead:"normal"},
   {from:3, to:2, label:"被用于", arrowhead:"normal"},
   {from:1, to:4, label:"包含", arrowhead:"normal"},
   {from:1, to:5, label:"包含", arrowhead:"normal"},
@@ -862,7 +866,7 @@ physics:{
   },
   // group
   groups: {
-      root: {color:{background:'#82d9ab',border:'#7dc9a1'}, borderWidth:3},
+      root: {color:{background:'#82d9ab',border:'#7dc9a1'}, borderWidth:4},
       theory: {color:{background:'#badbf5',border:'#a9c6de'}, borderWidth:3},
       method: {color:{background:'#b7ebb8',border:'#a3d1a4'}, borderWidth:3},
       task: {color:{background:'#e3bb7f',border:'#c9a773'}, borderWidth:3},
