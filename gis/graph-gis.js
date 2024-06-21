@@ -876,7 +876,47 @@ physics:{
     }
 }
 
+var searchInput = document.getElementById('searchInput');
+var searchButton = document.getElementById('searchButton');
 
+searchButton.addEventListener('click', function() {
+  var searchTerm = searchInput.value.toLowerCase();
 
+  // 遍历所有节点，将不匹配搜索词的节点隐藏
+  nodes.forEach(function(node) {
+    if (node.label.toLowerCase().indexOf(searchTerm) === -1) {
+      node.hidden = true;
+    } else {
+      node.hidden = false;
+    }
+  });
+
+  // 遍历所有边，将不匹配搜索词的边隐藏
+  edges.forEach(function(edge) {
+    if (edge.label && edge.label.toLowerCase().indexOf(searchTerm) === -1) {
+      edge.hidden = true;
+    } else {
+      edge.hidden = false;
+    }
+  });
+
+  // 更新图表
+  network.setData({nodes: nodes, edges: edges});
+});
+var resetButton = document.getElementById('resetButton');
+
+resetButton.addEventListener('click', function() {
+  // 将所有节点和边的隐藏状态重置为false
+  nodes.forEach(function(node) {
+    node.hidden = false;
+  });
+
+  edges.forEach(function(edge) {
+    edge.hidden = false;
+  });
+
+  // 更新图表
+  network.setData({nodes: nodes, edges: edges});
+});
 // initialize your network!
 var network = new vis.Network(container, data, options);
