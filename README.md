@@ -1,6 +1,8 @@
 # knowledge-map
 thanks to https://yeshan-geo.github.io/kg/cv/viz.html
 
+部署的地址：https://kg.gistudio.cn/gis/
+
 
 改进：
 - 新增数据读取与制作模块
